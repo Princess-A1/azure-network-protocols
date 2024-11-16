@@ -32,30 +32,25 @@ In this tutorial, we will observe various network traffic to and from Azure Virt
 <h2>Actions and Observations</h2>
 
 Create your Resource Groups and Virtual Machines [Note: If you need help with this step, check out this [repository](https://github.com/Princess-A1/virtual-machine).]
-
-![Screenshot 133214](https://github.com/user-attachments/assets/aad6e4f5-5377-4f06-9d06-d1cbf72fcd6c)
-
-
+![Screenshot 135925](https://github.com/user-attachments/assets/007d6224-93b7-4098-bfa2-26433e53b7da)
 
 Install Wireshark in Virtual Machine 1 (VM-1)
-
-<img 
-<img 
+![Screenshot 140113](https://github.com/user-attachments/assets/936175c9-476a-46f4-a08e-edb5ce88a559)
+![Screenshot 140441](https://github.com/user-attachments/assets/b6d83dc1-3238-4856-b9b2-e7c364a724b5)
 
 Open Wireshark, and click the blue fin to observe ICMP traffic.
-
-<img 
-<img 
+![Screenshot 155429](https://github.com/user-attachments/assets/50a56728-a9c0-4bf5-bc5d-e10782e383c3)
+![Screenshot 155539](https://github.com/user-attachments/assets/d334a70a-1495-457e-869d-3777a3984d91)
 
 Observe ICMP Traffic 
 Type ICMP in the filter bar to filter only for ICMP traffic 
-
-<img 
+![Screenshot 155629](https://github.com/user-attachments/assets/4f160c2a-a827-4061-a0d8-7dde211d5e65)
 
 Ping Virtual Machine 2 (VM-2) using its private IP address from Azure.
+![Screenshot 155721](https://github.com/user-attachments/assets/590dd7e6-2739-4609-b2fa-ad5decb01c63)
+![Screenshot 155809](https://github.com/user-attachments/assets/4ccb11c1-1947-4bce-bd3f-e80ee01be7e0)
 
-<img 
-<img 
+
 
 From Windows 11 virtual machine, open PowerShell and ping the website www.google.com and observe the traffic in Wireshark. 
 <img 
