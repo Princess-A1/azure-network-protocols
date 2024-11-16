@@ -31,7 +31,7 @@ In this tutorial, we will observe various network traffic to and from Azure Virt
 
 <h2>Actions and Observations</h2>
 
-Create your Resource Groups and Virtual Machines [Note: If you need help with this step, check out this [repository]([https://github.com](https://github.com/Princess-A1/virtual-machine))
+Create your Resource Groups and Virtual Machines [Note: If you need help with this step, check out this [repository](https://github.com/Princess-A1/virtual-machine).]
 
 ![Screenshot 133214](https://github.com/user-attachments/assets/aad6e4f5-5377-4f06-9d06-d1cbf72fcd6c)
 
