@@ -5,7 +5,7 @@
 </p>
 
 <h1>Network Security Groups (NSGs) and Inspecting Traffic Between Azure Virtual Machines</h1>
-In this tutorial, we will observe various network traffic to and from Azure Virtual Machines with Wireshark as well as experiment with Network Security Groups. <br />
+In this tutorial, we will observe various network traffic to and from Azure Virtual Machines with Wireshark. We will also experiment with Network Security Groups. <br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -53,31 +53,33 @@ Ping Virtual Machine 2 (VM-2) using its private IP address from Azure.
 
 
 From Windows 11 virtual machine, open PowerShell and ping the website www.google.com and observe the traffic in Wireshark. 
-<img 
+![Screenshot 160739](https://github.com/user-attachments/assets/39fc3628-068f-4fd0-ae3f-a89cba130fc2)
 
-Send a nonstop ping to VM-2 with the command "ping -t"
-<img 
+Send a non-stop ping to VM-2 with the command "ping -t"
+![Screenshot 075623](https://github.com/user-attachments/assets/1ef8ef1b-ef71-4158-a643-5fb49b6624a6)
+
 
 In Azure, go into the VM-2 network security group and add an inbound rule to stop ICMP traffic.
-<img 
-<img 
+![Screenshot 081521](https://github.com/user-attachments/assets/8302e313-dfba-4f5b-be0e-dc2904b1adba)
+![Screenshot 081630](https://github.com/user-attachments/assets/6f901bc4-9d84-4c81-b985-3e391e1bbeb9)
+
 
 Delete the inbound rule or simply allow the inbound rule to receive ICMP traffic (control+C to stop non-stop packets)
-<img 
+![Screenshot 081723](https://github.com/user-attachments/assets/0711104a-ec5c-4915-bb80-5843d9f9d2f1)
 
 Observe SSH Traffic 
 From the Windows 11 virtual machine, connect to VM-2 virtual machine using SSH via PowerShell. 
 Using Powershell type SSH <username>@<VM-2 Private IP address> and hit Enter. Type in the login password [Note: password will not show]
-<img 
-<img 
+![Screenshot 081815](https://github.com/user-attachments/assets/7d503855-40e9-450d-a933-b792afdedf6a)
+![Screenshot 081849](https://github.com/user-attachments/assets/1fa40bdc-f353-4b46-8167-6846241ef213)
 
 Observe DHCP Traffic 
 Type the command "ipconfig /renew" the VM will receive a new IP address. Observe the traffic in WireShark [Note: The VM may restart to receive the IP address]
-
-<img 
+![Screenshot 2024-11-17 081938](https://github.com/user-attachments/assets/a9b85690-a3e9-4b55-93b6-5ed8bdd91923)
 
 Observe DNS Traffic 
 In Powershell, using the command "nslookup" type "nslookup www.google.com". Observe the IP address and DNS traffic in Wireshark.
-<img 
+![Screenshot 082030](https://github.com/user-attachments/assets/79d3fe19-ad44-442a-a030-3d1bc953fd86)
 
 Observe RDP Traffic 
+![Screenshot 082113](https://github.com/user-attachments/assets/e4e05239-455f-43b9-9dce-7ed35211905c)
