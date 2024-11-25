@@ -35,18 +35,21 @@ Create your Resource Groups and Virtual Machines [Note: If you need help with th
 - In the following steps, I’ll be using virtual machines named Client-1 and Client-2
 - Client-1: Windows 10 Pro
 - Client-2: Ubuntu 22.04
-![Screenshot 135925](https://github.com/user-attachments/assets/007d6224-93b7-4098-bfa2-26433e53b7da)
+
+![Screenshot 140757](https://github.com/user-attachments/assets/e0a0f451-e48d-4592-9c61-9bb5f2192aa4)
+
 
 Install Wireshark on your virtual machine
 - Log in to Client-1
 - Open web browser, and download Wireshark
 - Once downloaded, open the file and follow the installation prompt
-![Screenshot 140113](https://github.com/user-attachments/assets/936175c9-476a-46f4-a08e-edb5ce88a559)
-![Screenshot 140441](https://github.com/user-attachments/assets/b6d83dc1-3238-4856-b9b2-e7c364a724b5)
+![Screenshot 140113](https://github.com/user-attachments/assets/628842f9-f891-4663-9fad-2f110a142644)
+![Screenshot 140441](https://github.com/user-attachments/assets/562d787e-b553-49f5-9dc7-a30f414504ef)
+
 
 Open Wireshark, and click the blue fin to start observing the packet captures.
-![Screenshot 155429](https://github.com/user-attachments/assets/50a56728-a9c0-4bf5-bc5d-e10782e383c3)
-![Screenshot 155539](https://github.com/user-attachments/assets/d334a70a-1495-457e-869d-3777a3984d91)
+![Screenshot 142831](https://github.com/user-attachments/assets/c6251901-f87d-4ec2-80a3-aff22b78f0a4)
+![Screenshot 143000](https://github.com/user-attachments/assets/8be0e8f2-f08d-48da-98f6-2c961a92c9a3)
 
 
 <h3>Observe ICMP Traffic</h3>
@@ -58,24 +61,30 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
 
 - Open PowerShell
 - Ping Client-2 using its private IP address
-  - "ping 10.0.0.5"
+  - "ping 10.0.0.6"
 - View the ICMP packet request and replies in Wireshark
-  
-![Screenshot 155721](https://github.com/user-attachments/assets/590dd7e6-2739-4609-b2fa-ad5decb01c63)
-![Screenshot 155809](https://github.com/user-attachments/assets/4ccb11c1-1947-4bce-bd3f-e80ee01be7e0)
+![Screenshot 143703](https://github.com/user-attachments/assets/f877f2ab-c6e3-45be-a369-74db75f30832)
+![Screenshot 143931](https://github.com/user-attachments/assets/b2f432f0-32fc-4d11-a49b-ec5473edf802)
+
+
 
 - Send a non-stop ping to Client-2 use the "-t" option.
-  - "ping -t 10.0.0.5"
-![Screenshot 160739](https://github.com/user-attachments/assets/39fc3628-068f-4fd0-ae3f-a89cba130fc2)
-![Screenshot 075623](https://github.com/user-attachments/assets/1ef8ef1b-ef71-4158-a643-5fb49b6624a6)
+  - "ping -t 10.0.0.6"
+ ![Screenshot 144242](https://github.com/user-attachments/assets/eb6d126f-7e11-4592-98c5-59a13edce6a3)
+
+
 
 - In the Azure portal, go into the Client-2’s network security group and add an inbound rule to stop ICMP traffic.
-![Screenshot 081521](https://github.com/user-attachments/assets/8302e313-dfba-4f5b-be0e-dc2904b1adba)
-![Screenshot 081630](https://github.com/user-attachments/assets/6f901bc4-9d84-4c81-b985-3e391e1bbeb9)
+![Screenshot 144341](https://github.com/user-attachments/assets/ab3c8052-cff5-44c9-a955-b44d01374527)
+![Screenshot 144416](https://github.com/user-attachments/assets/a731ac3e-4df4-43fd-a91d-277819185160)
+![Screenshot 144557](https://github.com/user-attachments/assets/65c9f9b4-e558-45d6-abfc-572333f44f5a)
+![Screenshot  144648](https://github.com/user-attachments/assets/430f38a6-7249-4a97-963d-fa7fd88913b6)
+
 
 - Delete the inbound rule or simply allow the inbound rule to receive ICMP traffic
   - Use [control+C] to end the non-stop packets 
-![Screenshot 081723](https://github.com/user-attachments/assets/0711104a-ec5c-4915-bb80-5843d9f9d2f1)
+![Screenshot  144752](https://github.com/user-attachments/assets/f8419d19-1045-4f13-b659-ce17dcdf4606)
+
 
 
 <h3>Observe SSH Traffic</h3>
@@ -86,9 +95,8 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
   - Ex. “ssh labuser@10.0.0.5”
 - Type in the login password [Note: password will not show] 
 - View the packet captures in Wireshark by filtering for “ssh”
-  
-![Screenshot 081815](https://github.com/user-attachments/assets/7d503855-40e9-450d-a933-b792afdedf6a)
-![Screenshot 081849](https://github.com/user-attachments/assets/1fa40bdc-f353-4b46-8167-6846241ef213)
+
+![Screenshot 161657](https://github.com/user-attachments/assets/efbf4b40-f87b-4378-98b8-f394eea05535)
 
 
 <h3>Observe DHCP Traffic</h3>
@@ -96,9 +104,9 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
 **DHCP**, or Dynamic Host Configuration Protocol, is a protocol that automatically assigns IP addresses and other network configurations to a device.
 - On Client-1, type the command "ipconfig /renew" in PowerShell.
   - The VM will receive a new IP address. 
-- Observe the DHCP traffic in WireShark by filtering for "dhcp" [Note: The VM may restart to receive the IP address] 
+- Observe the DHCP traffic in WireShark by filtering for "dhcp" [Note: The VM may restart to receive the IP address]
 
-![Screenshot 2024-11-17 081938](https://github.com/user-attachments/assets/a9b85690-a3e9-4b55-93b6-5ed8bdd91923)
+![Screenshot 162116](https://github.com/user-attachments/assets/03ccc0c6-e57f-4d29-8f2e-cfd8c17d4955)
 
 
 <h3>Observe DNS Traffic</h3>
@@ -107,8 +115,8 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
 - In Powershell, use the "nslookup" command to observe the DNS traffic in Wireshark. 
 - Type “nslookup www.google.com”
 - Filter for "dns" within Wireshark
-
-![Screenshot 082030](https://github.com/user-attachments/assets/79d3fe19-ad44-442a-a030-3d1bc953fd86)
+  
+![Screenshot 162312](https://github.com/user-attachments/assets/df6127db-6947-4a1b-bdbf-e9a246767a37)
 
 
 <h3>Observe RDP Traffic</h3>
@@ -116,6 +124,9 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
 **RDP**, or Remote Desktop Protocol, is a secure network communication protocol that is used to remotely access and control other computers.
 - To view RDP traffic, type “rdp” in the filter bar.
   - We used RDP to connect to our VM’s in Azure using their Public IP address.
+ 
+![Screenshot 162522](https://github.com/user-attachments/assets/b4d25733-412a-4c7d-ab3a-0e650e825068)
+
   
 ![Screenshot 082113](https://github.com/user-attachments/assets/e4e05239-455f-43b9-9dce-7ed35211905c)
 
