@@ -50,19 +50,22 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
 
 
 <h3>Observe ICMP Traffic</h3>
-**ICMP**, or Internet Control Message Protocol that’s used to diagnose network communication issues. One common tool that uses this protocol is the “ping” command.
+
+**ICMP**, or Internet Control Message Protocol, is used to diagnose network communication issues. One common tool that uses this protocol is the “ping” command.
 - In the filter bar, you can type “icmp” to filter only for ICMP traffic 
 
 ![Screenshot 155629](https://github.com/user-attachments/assets/4f160c2a-a827-4061-a0d8-7dde211d5e65)
 
 - Open PowerShell
 - Ping Client-2 using its private IP address
+  - "ping 10.0.0.5"
 - View the ICMP packet request and replies in Wireshark
   
 ![Screenshot 155721](https://github.com/user-attachments/assets/590dd7e6-2739-4609-b2fa-ad5decb01c63)
 ![Screenshot 155809](https://github.com/user-attachments/assets/4ccb11c1-1947-4bce-bd3f-e80ee01be7e0)
 
-- Send a non-stop ping to Client-2 with the command "ping -t"
+- Send a non-stop ping to Client-2 use the "-t" option.
+  - "ping -t 10.0.0.5"
 ![Screenshot 160739](https://github.com/user-attachments/assets/39fc3628-068f-4fd0-ae3f-a89cba130fc2)
 ![Screenshot 075623](https://github.com/user-attachments/assets/1ef8ef1b-ef71-4158-a643-5fb49b6624a6)
 
@@ -70,11 +73,13 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
 ![Screenshot 081521](https://github.com/user-attachments/assets/8302e313-dfba-4f5b-be0e-dc2904b1adba)
 ![Screenshot 081630](https://github.com/user-attachments/assets/6f901bc4-9d84-4c81-b985-3e391e1bbeb9)
 
-- Delete the inbound rule or simply allow the inbound rule to receive ICMP traffic (control+C to stop non-stop packets) 
+- Delete the inbound rule or simply allow the inbound rule to receive ICMP traffic
+  - Use [control+C] to end the non-stop packets 
 ![Screenshot 081723](https://github.com/user-attachments/assets/0711104a-ec5c-4915-bb80-5843d9f9d2f1)
 
 
 <h3>Observe SSH Traffic</h3>
+
 **SSH**, or SecureShell, is a protocol that allows users to securely access and manage remote computers over an unsecure network.
 - From Client-1, connect to Client-2  using SSH via PowerShell. 
 - Using PowerShell, type “ssh <username>@<IP-address>” and hit Enter. 
@@ -87,6 +92,7 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
 
 
 <h3>Observe DHCP Traffic</h3>
+
 **DHCP**, or Dynamic Host Configuration Protocol, is a protocol that automatically assigns IP addresses and other network configurations to a device.
 - On Client-1, type the command "ipconfig /renew" in PowerShell.
   - The VM will receive a new IP address. 
@@ -96,6 +102,7 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
 
 
 <h3>Observe DNS Traffic</h3>
+
 **DNS**, or Domain Name System, is a protocol used to translate domain names to IP addresses.
 - In Powershell, use the "nslookup" command to observe the DNS traffic in Wireshark. 
 - Type “nslookup www.google.com”
@@ -105,6 +112,7 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
 
 
 <h3>Observe RDP Traffic</h3>
+
 **RDP**, or Remote Desktop Protocol, is a secure network communication protocol that is used to remotely access and control other computers.
 - To view RDP traffic, type “rdp” in the filter bar.
   - We used RDP to connect to our VM’s in Azure using their Public IP address.
