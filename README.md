@@ -127,6 +127,3 @@ Open Wireshark, and click the blue fin to start observing the packet captures.
  
 ![Screenshot 162522](https://github.com/user-attachments/assets/b4d25733-412a-4c7d-ab3a-0e650e825068)
 
-  
-![Screenshot 082113](https://github.com/user-attachments/assets/e4e05239-455f-43b9-9dce-7ed35211905c)
-
